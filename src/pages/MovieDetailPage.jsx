@@ -25,6 +25,7 @@ const MovieDetailPage = () => {
       }, [id]);
 
       if (!movie) return <Typography>Loading...</Typography>;
+
       const trailer = movie.videos?.results?.find((vid) => vid.type === 'Trailer');
 
       return (
@@ -32,28 +33,33 @@ const MovieDetailPage = () => {
                   <Typography variant='h3' fontWeight='bold' gutterBottom>
                         {movie.title}
                   </Typography>
-                  <Typography variant='subtitle1' color='textSecondary'>
+                  <Typography variant='subtitle1' color='textSecondary' gutterBottom>
                         Original Title: {movie.original_title} ({movie.original_language.toUpperCase()})
                   </Typography>
 
-                  <Box my={2}>
+                  <Box my={3}>
                         <img src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path || movie.poster_path}`}
                               alt={movie.title}
-                              style={{ width: '100%', borderRadius: '8px' }}
+                              style={{ width: '100%', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)', objectFit: 'cover' }}
                         />
                   </Box>
-                  <Typography variant="subtitle1">{movie.overview}</Typography>
+                  <Typography variant="body1" paragraph>{movie.overview}</Typography>
 
                   <Box my={2}>
                         {movie.genres.map((genre) => (
-                              <Chip key={genre.id} label={genre.name} sx={{ marginRight: 1 }} />
+                              <Chip key={genre.id}
+                                    label={genre.name}
+                                    color="primary"
+                                    variant="outlined"
+                                    sx={{ mr: 1, mb: 1 }}
+                              />
                         ))}
                   </Box>
 
-                  <Typography variant="body1">Rating: {movie.vote_average} ⭐</Typography>
-                  <Typography variant="body1">Release Date: {movie.release_date}</Typography>
-                  <Typography variant="body1">Runtime: {movie.runtime} minutes</Typography>
-                  <Typography variant="body1">Status: {movie.status}</Typography>
+                  <Typography variant="body1"> <strong>Rating : </strong>{movie.vote_average} ⭐</Typography>
+                  <Typography variant="body1"><strong>Release Date : </strong> {movie.release_date}</Typography>
+                  <Typography variant="body1"><strong>Runtime : </strong> {movie.runtime} minutes</Typography>
+                  <Typography variant="body1"><strong>Status : </strong> {movie.status}</Typography>
 
                   {movie.production_companies?.length > 0 && (
                         <Typography variant="body2" mt={1}>
@@ -82,26 +88,41 @@ const MovieDetailPage = () => {
                   {movie.homepage && (
                         <Typography variant="body2" mt={1}>
                               Homepage:{' '}
-                              <Link href={movie.homepage} target="_blank" rel="noopener">
+                              <Link href={movie.homepage} target="_blank" rel="noopener" underline="hover">
                                     {movie.homepage}
                               </Link>
                         </Typography>
                   )}
 
-                  <Button variant="contained" onClick='' sx={{ my: 2 }}>
-                        favorit
+                  <Button variant={favorites ? "outlined" : "contained"}
+                        color={favorites ? "secondary" : "primary"} onClick='' sx={{ my: 2 }}>
+                        {favorites ? "Remove from Favorites" : "Add to Favorites"}
                   </Button>
                   {trailer && (
                         <Box mt={2}>
-                              <Typography variant="h6">Trailer:</Typography>
-                              <iframe
-                                    width="100%"
-                                    height="400"
-                                    src={`https://www.youtube.com/embed/${trailer.key}`}
-                                    title="Trailer"
-                                    frameBorder="0"
-                                    allowFullScreen
-                              ></iframe>
+                              <Typography variant="h5" gutterBottom>Trailer:</Typography>
+                              <Box
+                                    sx={{
+                                          position: 'relative',
+                                          paddingTop: '56.25%',
+                                          borderRadius: '12px',
+                                          overflow: 'hidden',
+                                          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                                    }}>
+                                    <iframe
+                                          src={`https://www.youtube.com/embed/${trailer.key}`}
+                                          title="Trailer"
+                                          frameBorder="0"
+                                          allowFullScreen
+                                          style={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                          }}
+                                    ></iframe>
+                              </Box>
                         </Box>
                   )}
             </Box>
