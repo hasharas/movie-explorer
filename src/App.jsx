@@ -10,6 +10,7 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import HomePage from './pages/HomePage';
 
 import MovieDetailPage from './pages/MovieDetailPage';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/movie/:id" element={<MovieDetailPage />} />
         </Routes>
+        <Footer />
       </ThemeProvider>
     </>
 
