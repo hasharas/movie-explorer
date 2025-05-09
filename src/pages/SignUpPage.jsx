@@ -1,11 +1,21 @@
-import React from 'react';
-import { TextField, Button, Box, Typography, Container } from '@mui/material';
+import React, { useState } from 'react';
+import { TextField, Button, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 
 const SignUpPage = () => {
 
       const navigate = useNavigate();
+      const [username, setUsername] = useState('');
+      const [password, setPassword] = useState('');
+
+
+      const handleSignUp = () => {
+            localStorage.setItem('user', JSON.stringify({ username, password }));
+            alert('User registered successfully!');
+            // Redirect to home page after successful signup
+            navigate('/');
+      }
 
       return (
 
@@ -15,20 +25,23 @@ const SignUpPage = () => {
                   </Typography>
                   <TextField
                         label="Username"
-                        value=''
-                        onChange=''
+                        value={username}
+                        type='text'
+                        onChange={(e) => setUsername(e.target.value)}
                         required
+                        margin='normal'
 
                   />
                   <TextField
-                        label="Email"
-                        type="email"
-                        value=''
-                        onChange=''
+                        label="Password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         required
+                        margin='normal'
 
                   />
-                  <Button variant="contained" onClick={() => navigate('/signup')}>Signup</Button>
+                  <Button variant="contained" onClick={handleSignUp}>Signup</Button>
 
             </Box>
 

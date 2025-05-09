@@ -15,8 +15,8 @@ const LoginPage = () => {
                         Login
                   </Typography>
                   <TextField
-                        label="Email"
-                        type="email"
+                        label="Username"
+                        type="Username"
                         value=''
                         onChange=''
                         required
