@@ -1,8 +1,11 @@
 import React from 'react';
 import { TextField, Button, Box, Typography, Container } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignUpPage = () => {
+
+      const navigate = useNavigate();
 
       return (
 
@@ -25,7 +28,7 @@ const SignUpPage = () => {
                         required
 
                   />
-                  <Button variant="contained" onClick=''>Signup</Button>
+                  <Button variant="contained" onClick={() => navigate('/signup')}>Signup</Button>
 
             </Box>
 

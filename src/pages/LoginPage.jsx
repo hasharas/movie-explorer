@@ -1,8 +1,13 @@
 import { Box, Button, Container, TextField, Typography } from '@mui/material'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginPage = () => {
+
+      const navigate = useNavigate();
+
+
       return (
 
             <Box display="flex" flexDirection="column" alignItems="center" mt={10} gap={2}>
@@ -26,7 +31,7 @@ const LoginPage = () => {
 
                   />
                   <Button variant="contained" onClick=''>Login</Button>
-                  <Button onClick=''>Go to Signup</Button>
+                  <Button onClick={() => navigate('/signup')}>Go to Signup</Button>
             </Box>
 
       )

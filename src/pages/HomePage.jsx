@@ -6,6 +6,7 @@ const HomePage = () => {
       return (
             <Box>
                   <SearchBar onSearch='' />
+                  <h1>jhhjhgj</h1>
             </Box>
       )
 }
