@@ -62,9 +62,7 @@ const MovieCard = ({ movie }) => {
                                           Genres : {genreNames}
                                     </Typography>
                               )
-
                               }
-
                               <Typography variant="body2" color="text.secondary" mt={1}>
                                     {movie.overview.length > 50 ? movie.overview.slice(0, 50) + "..." : movie.overview}
                               </Typography>
