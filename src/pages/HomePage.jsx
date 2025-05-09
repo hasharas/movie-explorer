@@ -4,9 +4,12 @@ import SearchBar from '../components/SearchBar'
 
 const HomePage = () => {
       return (
-            <Box>
-                  <SearchBar onSearch='' />
-                  <h1>jhhjhgj</h1>
+            <Box  >
+                  <SearchBar
+                        onSearch=''
+
+                  />
+
             </Box>
       )
 }

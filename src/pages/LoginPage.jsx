@@ -9,6 +9,9 @@ const LoginPage = () => {
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
 
+
+      // Handle login function normal add this not fully work
+      // because i have not add the backend part yet
       const handleLogin = () => {
             const user = JSON.parse(localStorage.getItem('user'));
             if (user.username === username && user?.password === password) {
