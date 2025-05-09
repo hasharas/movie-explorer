@@ -1,8 +1,10 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Rating, Typography } from '@mui/material'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
 
+      const navigate = useNavigate();
       const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
       const genreMap = {
@@ -31,7 +33,7 @@ const MovieCard = ({ movie }) => {
 
       return (
             <Card sx={{ maxWidth: 200, margin: 1 }}>
-                  <CardActionArea >
+                  <CardActionArea onClick={() => navigate(`/movie/${movie.id}`)}>
                         <CardMedia
                               component="img"
                               height="250"

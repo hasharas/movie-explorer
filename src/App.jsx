@@ -9,6 +9,8 @@ import NavBar from './components/NavBar';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import HomePage from './pages/HomePage';
 
+import MovieDetailPage from './pages/MovieDetailPage';
+
 
 function App() {
 
@@ -29,6 +31,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/home" element={<HomePage />} />
+          <Route path="/movie/:id" element={<MovieDetailPage />} />
         </Routes>
       </ThemeProvider>
     </>
