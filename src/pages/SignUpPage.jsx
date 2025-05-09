@@ -19,7 +19,7 @@ const SignUpPage = () => {
 
       return (
 
-            <Box display="flex" flexDirection="column" alignItems="center" mt={10} gap={2}>
+            <Box display="flex" flexDirection="column" alignItems="center" mt={10} gap={3} >
                   <Typography variant="h4" textAlign="center" gutterBottom>
                         Sign Up
                   </Typography>
@@ -29,7 +29,7 @@ const SignUpPage = () => {
                         type='text'
                         onChange={(e) => setUsername(e.target.value)}
                         required
-                        margin='normal'
+
 
                   />
                   <TextField
@@ -38,7 +38,7 @@ const SignUpPage = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        margin='normal'
+
 
                   />
                   <Button variant="contained" onClick={handleSignUp}>Signup</Button>
