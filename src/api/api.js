@@ -1,3 +1,6 @@
+
+// config and service files didnt use ,this api service file only use fetch ,
+
 import axios from 'axios';
 
 const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
