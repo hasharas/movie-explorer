@@ -38,7 +38,7 @@ const NavBar = () => {
 
 
                         {/* mobile menu */}
-                        <Box sx={{ display: { xs: 'block' }, md: 'none' }}>
+                        <Box sx={{ display: { xs: 'block', md: 'none' }, }}>
                               <IconButton color="inherit" onClick={handleMenuOpen}>
                                     <MenuIcon />
                               </IconButton>
@@ -49,6 +49,8 @@ const NavBar = () => {
                               anchorEl={anchorEl}
                               open={Boolean(anchorEl)}
                               onClose={handleMenuClose}
+                              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                         >
                               <MenuItem component={NavLink} onClick={handleMenuClose} to='/home'>
                                     Home
