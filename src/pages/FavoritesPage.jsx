@@ -9,17 +9,20 @@ const FavoritesPage = () => {
 
       return (
             <Box>
-                  <Typography>
-                        <Grid container justifyContent='center'>
-                              {favorites.length > 0 ? (
-                                    favorites.map((movie) => <MovieCard key={movie.id} movie={movie} />)
-                              ) : (
-                                    <Typography >No Favorite movies added... </Typography>
-                              )
-
-                              }
-                        </Grid>
+                  <Typography variant='h4' mt={2}>
+                        Your Favorites
                   </Typography>
+
+                  <Grid container justifyContent='center'>
+                        {favorites.length > 0 ? (
+                              favorites.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+                        ) : (
+                              <Typography >No Favorite movies added... </Typography>
+                        )
+
+                        }
+                  </Grid>
+
 
             </Box>
       );

@@ -36,22 +36,25 @@ const HomePage = () => {
 
 
 
-            <Box  >
+            <Box sx={{ p: 3, minHeight: '100vh' }}>
                   <SearchBar
                         onSearch={handleSearch}
                   />
-                  <Typography >
+                  <Typography variant='h4' component='h1' sx={{ mt: 4, mb: 2, fontWeight: 'bold', textAlign: 'center' }}>
                         {
                               query ? 'Search Results' : 'Trending Movies'
                         }
                   </Typography>
-                  <Grid container justifyContent={'center'}>
+
+                  <Grid container spacing={3} justifyContent="center">
                         {movies.map((movie) => (
-                              <MovieCard key={movies.id} movie={movie} />
+                              <Grid item key={movie.id} container xs={12} sm={6} md={4} lg={3} >
+                                    <MovieCard movie={movie} />
+                              </Grid>
                         ))}
                   </Grid>
 
-            </Box>
+            </Box >
       )
 }
 

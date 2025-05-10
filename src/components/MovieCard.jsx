@@ -40,7 +40,7 @@ const MovieCard = ({ movie }) => {
                               image={imageUrl}
                               alt={movie.title}
                               sx={{ objectFit: 'cover' }}
-                              onClick={() => console.log('Movie clicked')}
+                        // onClick={() => console.log('Movie clicked')}
                         />
                         <CardContent>
                               <Typography variant='h6' gutterBottom>

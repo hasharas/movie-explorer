@@ -1,7 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { MovieContext } from './context/MovieContext';
 import { useContext } from 'react';
 import SignUpPage from './pages/SignUpPage'
@@ -27,15 +27,24 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/movie/:id" element={<MovieDetailPage />} />
-          <Route path='/favorites' element={<FavoritesPage />} />
-        </Routes>
-        <Footer />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+          }}>
+          <NavBar />
+          <Box sx={{ flexGrow: 1 }}>
+            <Routes>
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/movie/:id" element={<MovieDetailPage />} />
+              <Route path='/favorites' element={<FavoritesPage />} />
+            </Routes>
+          </Box>
+          <Footer />
+        </Box>
       </ThemeProvider>
     </>
 

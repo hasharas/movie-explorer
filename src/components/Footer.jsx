@@ -6,6 +6,7 @@ const Footer = () => {
             //footer create aditionly 
             <Box
                   component="footer"
+                  position="static"
                   sx={{
                         mt: 5,
                         py: 3,

@@ -1,13 +1,14 @@
 import { AppBar, Box, Button, IconButton, Menu, MenuItem, Switch, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { MovieContext } from '../context/MovieContext';
 
 const NavBar = () => {
 
       const { darkMode, setDarkMode } = useContext(MovieContext);
       const [anchorEl, setAnchoEl] = useState();
+      const navigate = useNavigate();
 
       const handleMenuOpen = (event) => {
             setAnchoEl(event.currentTarget);
@@ -19,7 +20,7 @@ const NavBar = () => {
       return (
             <AppBar position="static" sx={{ backgroundColor: darkMode ? '#222' : '#1976d2' }}>
                   <Toolbar>
-                        <Typography variant="h5" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+                        <Typography variant="h5" onClick={() => navigate('/home')} component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
                               @ Movie Explorer
                         </Typography>
 

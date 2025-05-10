@@ -27,6 +27,7 @@ export const searchMovies = async (query, page = 1) => {
             const { data } = await api.get('/search/movie', {
                   params: { query, page },
             });
+            console.log('search one :', data)
             return data.results;
       } catch (err) {
             throw new Error('Search failed');
@@ -38,6 +39,7 @@ export const getMovieDetails = async (movieId) => {
             const { data } = await api.get(`/movie/${movieId}`, {
                   params: { append_to_response: 'videos,credits' },
             });
+            console.log('serched one :', data)
             return data;
       } catch (err) {
             throw new Error('Failed to fetch movie details');
