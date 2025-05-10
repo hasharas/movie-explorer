@@ -24,6 +24,15 @@ const MovieDetailPage = () => {
             fetchDetails();
       }, [id]);
 
+      const handleFavorite = () => {
+            const isFavorite = favorites.some((fav) => fav.id === movie.id);
+            if (isFavorite) {
+                  setFavorites(favorites.filter((fav) => fav.id !== movie.id));
+            } else {
+                  setFavorites([...favorites, movie]);
+            }
+      };
+
       if (!movie) return <Typography>Loading...</Typography>;
 
       const trailer = movie.videos?.results?.find((vid) => vid.type === 'Trailer');
@@ -95,8 +104,11 @@ const MovieDetailPage = () => {
                   )}
 
                   <Button variant={favorites ? "outlined" : "contained"}
-                        color={favorites ? "secondary" : "primary"} onClick='' sx={{ my: 2 }}>
-                        {favorites ? "Remove from Favorites" : "Add to Favorites"}
+                        color={favorites ? "secondary" : "primary"}
+                        onClick={handleFavorite}
+                        sx={{ my: 2 }}>
+
+                        {favorites.some((fav) => fav.id === movie.id) ? "Remove from Favorites" : "Add to Favorites"}
                   </Button>
                   {trailer && (
                         <Box mt={2}>

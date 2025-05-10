@@ -1,16 +1,16 @@
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { MovieContext } from './context/MovieContext';
 import { useContext } from 'react';
 import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage';
 import NavBar from './components/NavBar';
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import HomePage from './pages/HomePage';
-
 import MovieDetailPage from './pages/MovieDetailPage';
 import Footer from './components/Footer';
+import FavoritesPage from './pages/FavoritesPage';
 
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/movie/:id" element={<MovieDetailPage />} />
+          <Route path='/favorites' element={<FavoritesPage />} />
         </Routes>
         <Footer />
       </ThemeProvider>
