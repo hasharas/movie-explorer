@@ -36,7 +36,7 @@ const HomePage = () => {
 
 
 
-            <Box sx={{ p: 3, minHeight: '100vh' }}>
+            <Box sx={{ p: 1, minHeight: '100vh' }}>
                   <SearchBar
                         onSearch={handleSearch}
                   />
@@ -46,9 +46,9 @@ const HomePage = () => {
                         }
                   </Typography>
 
-                  <Grid container spacing={3} justifyContent="center">
+                  <Grid container spacing={3} sx={{}} justifyContent="center">
                         {movies.map((movie) => (
-                              <Grid item key={movie.id} container xs={12} sm={6} md={4} lg={3} >
+                              <Grid item key={movie.id} container  >
                                     <MovieCard movie={movie} />
                               </Grid>
                         ))}

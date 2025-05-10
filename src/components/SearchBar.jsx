@@ -11,7 +11,7 @@ const SearchBar = ({ onSearch }) => {
       };
 
       return (
-            <Box m={2}>
+            <Box m={1}>
                   <TextField
                         fullWidth
                         label="Search for movies..."

@@ -18,13 +18,13 @@ const NavBar = () => {
             setAnchoEl(null)
       }
       return (
-            <AppBar position="static" sx={{ backgroundColor: darkMode ? '#222' : '#1976d2' }}>
+            <AppBar position="static" sx={{ height: 80, justifyContent: 'center' }} >
                   <Toolbar>
-                        <Typography variant="h5" onClick={() => navigate('/home')} component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+                        <Typography variant="h5" onClick={() => navigate('/home')} component="div" sx={{ flexGrow: 1, letterSpacing: 1.5, cursor: 'pointer', fontWeight: 'bold' }}>
                               @ Movie Explorer
                         </Typography>
 
-                        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+                        <Box sx={{ display: { xs: 'none', md: 'flex', fontStyle: 'italic' }, gap: 2 }}>
                               <Button color="inherit" component={Link} to="/home">Home</Button>
                               <Button color="inherit" component={Link} to="/favorites">Favorites</Button>
                               <Button color="inherit" component={Link} to="/popular">Popular</Button>
