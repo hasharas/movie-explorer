@@ -23,5 +23,7 @@ Follow these steps to run the project locally:
 ```bash
 git clone https://gitlab.com/your-username/movie-explorer.git
 cd movie-explorer
+ npm install
+ npm run dev
 
 
