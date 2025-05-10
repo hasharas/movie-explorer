@@ -10,7 +10,7 @@ const LoginPage = () => {
       const [password, setPassword] = useState('');
 
 
-      // Handle login function normal add this not fully work
+      // Handle login function normal add this not fully work normaly can go home page 
       // because i have not add the backend part yet
       const handleLogin = () => {
             const user = JSON.parse(localStorage.getItem('user'));

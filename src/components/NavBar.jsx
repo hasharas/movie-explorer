@@ -1,7 +1,7 @@
 import { AppBar, Box, Button, IconButton, Menu, MenuItem, Switch, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useContext, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { MovieContext } from '../context/MovieContext';
 
 const NavBar = () => {
@@ -9,6 +9,8 @@ const NavBar = () => {
       const { darkMode, setDarkMode } = useContext(MovieContext);
       const [anchorEl, setAnchoEl] = useState();
       const navigate = useNavigate();
+      const location = useLocation();
+
 
       const handleMenuOpen = (event) => {
             setAnchoEl(event.currentTarget);
@@ -39,11 +41,14 @@ const NavBar = () => {
 
 
                         {/* mobile menu */}
-                        <Box sx={{ display: { xs: 'block', md: 'none' }, }}>
-                              <IconButton color="inherit" onClick={handleMenuOpen}>
-                                    <MenuIcon />
-                              </IconButton>
-                        </Box>
+                        {location.pathname !== '/' && location.pathname !== '/signup' && (
+                              <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+                                    <IconButton color="inherit" onClick={handleMenuOpen}>
+                                          <MenuIcon />
+                                    </IconButton>
+                              </Box>
+                        )}
+
 
 
                         <Menu
