@@ -26,12 +26,14 @@ const NavBar = () => {
                               @ Movie Explorer
                         </Typography>
 
-                        <Box sx={{ display: { xs: 'none', md: 'flex', fontStyle: 'italic' }, gap: 2 }}>
-                              <Button color="inherit" component={Link} to="/home">Home</Button>
-                              <Button color="inherit" component={Link} to="/favorites">Favorites</Button>
-                              <Button color="inherit" component={Link} to="/popular">Popular</Button>
-                              <Button color="inherit" component={Link} to="/about">About Us</Button>
-                        </Box>
+                        {location.pathname !== '/' && location.pathname !== '/signup' && (
+                              <Box sx={{ display: { xs: 'none', md: 'flex', fontStyle: 'italic' }, gap: 2 }}>
+                                    <Button color="inherit" component={Link} to="/home">Home</Button>
+                                    <Button color="inherit" component={Link} to="/favorites">Favorites</Button>
+                                    <Button color="inherit" component={Link} to="/popular">Popular</Button>
+                                    <Button color="inherit" component={Link} to="/about">About Us</Button>
+                              </Box>
+                        )}
                         {/* back ground color change */}
                         <Switch
                               checked={darkMode}
