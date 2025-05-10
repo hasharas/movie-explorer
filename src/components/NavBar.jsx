@@ -1,12 +1,21 @@
-import { AppBar, Box, Button, Switch, Toolbar, Typography } from '@mui/material';
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { AppBar, Box, Button, IconButton, Menu, MenuItem, Switch, Toolbar, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import React, { useContext, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { MovieContext } from '../context/MovieContext';
 
 const NavBar = () => {
 
       const { darkMode, setDarkMode } = useContext(MovieContext);
+      const [anchorEl, setAnchoEl] = useState();
 
+      const handleMenuOpen = (event) => {
+            setAnchoEl(event.currentTarget);
+      };
+
+      const handleMenuClose = () => {
+            setAnchoEl(null)
+      }
       return (
             <AppBar position="static" sx={{ backgroundColor: darkMode ? '#222' : '#1976d2' }}>
                   <Toolbar>
@@ -20,6 +29,7 @@ const NavBar = () => {
                               <Button color="inherit" component={Link} to="/popular">Popular</Button>
                               <Button color="inherit" component={Link} to="/about">About Us</Button>
                         </Box>
+                        {/* back ground color change */}
                         <Switch
                               checked={darkMode}
                               onChange={() => setDarkMode(!darkMode)}
@@ -27,8 +37,32 @@ const NavBar = () => {
                         />
 
 
-                        {/* mobite menu */}
+                        {/* mobile menu */}
+                        <Box sx={{ display: { xs: 'block' }, md: 'none' }}>
+                              <IconButton color="inherit" onClick={handleMenuOpen}>
+                                    <MenuIcon />
+                              </IconButton>
+                        </Box>
 
+
+                        <Menu
+                              anchorEl={anchorEl}
+                              open={Boolean(anchorEl)}
+                              onClose={handleMenuClose}
+                        >
+                              <MenuItem component={NavLink} onClick={handleMenuClose} to='/home'>
+                                    Home
+                              </MenuItem>
+                              <MenuItem component={NavLink} onClick={handleMenuClose} to='favorites'>
+                                    Favorites
+                              </MenuItem>
+                              <MenuItem component={NavLink} onClick={handleMenuClose} to='popular'>
+                                    Popular
+                              </MenuItem>
+                              <MenuItem component={NavLink} onClick={handleMenuClose} to='about'>
+                                    About Us
+                              </MenuItem>
+                        </Menu>
 
                   </Toolbar>
             </AppBar>
